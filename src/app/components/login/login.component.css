@@ -1,0 +1,95 @@
+.container {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: space-between;
+
+  color: #393939;
+}
+
+.background {
+  background-image: url('/assets/lookup-bg.jpg');
+  background-size: cover;
+
+  width: 100%;
+  height: 100%;
+}
+
+.form-container {
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
+
+  padding: 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-container form {
+  display: flex;
+  flex: 1;
+  max-width: 400px;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-container form button {
+  height: 50px;
+
+  color: #fff;
+
+  background-color: #9ccad7;
+  border: none;
+  border-bottom: 4px solid #90bac5;
+  border-radius: 10px;
+}
+
+
+.form-container form .form-title img {
+  width: 32px;
+}
+
+.form-container form .form-title {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.form-container form section {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+
+.form-container form section .input-container {
+  display: flex;
+
+  border: 1px solid #7a7a7a;
+  border-radius: 5px;
+
+  height: 45px;
+
+  padding: 10px;
+}
+
+.form-container form section label {
+  font-size: 14px;
+  font-weight: bold;
+
+  margin-bottom: 5px;
+}
+
+.form-container form section input {
+  background: transparent;
+  flex: 1;
+  border: none;
+
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+}
+
