@@ -10,6 +10,19 @@
       </section>
 
       <section>
+        <label for="name">Nome</label>
+
+        <div class="input-container">
+          <input
+            type="text"
+            name="name"
+            id="name"
+            [(ngModel)]="name"
+          >
+        </div>
+      </section>
+
+      <section>
         <label for="email">Email</label>
 
         <div class="input-container">
@@ -35,14 +48,27 @@
         </div>
       </section>
 
-      <section class="form-link">
-        <span routerLink="/signup">Não tem conta ? Cadastre-se</span>
+      <section>
+        <label for="passwordConfirmation">Confirmar senha</label>
+
+        <div class="input-container">
+          <input
+            type="password"
+            id="passwordConfirmation"
+            name="passwordConfirmation"
+            [(ngModel)]="passwordConfirmation"
+          >
+        </div>
       </section>
 
-      <button (click)="login()">
+      <section class="form-link">
+        <span routerLink="/login">Já tem conta ? Fazer login</span>
+      </section>
+
+      <button (click)="signUp()">
         <div class="loader" *ngIf="loading"></div>
 
-        <span *ngIf="!loading">Entrar</span>
+        <span>Cadastrar</span>
       </button>
     </form>
   </div>
