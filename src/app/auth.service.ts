@@ -36,7 +36,7 @@ export class AuthService {
       catchError(error => {
         console.error(error);
 
-        throw new Error(error);
+        throw new Error(error.error?.message);
       })
     );
   }

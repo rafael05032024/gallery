@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 import { AuthService } from '../../auth.service';
 
@@ -10,8 +11,9 @@ import { AuthService } from '../../auth.service';
 })
 
 export class LoginComponent implements OnInit {
-  email: string = '';
-  password: string = '';
+  email = '';
+  password = '';
+  loading = false;
 
   constructor(
     private authService: AuthService,
@@ -22,11 +24,24 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    this.loading = true;
+
     this.authService.login(this.email, this.password).subscribe({
       next: () => {
+        this.loading = false;
+
         this.router.navigate(['/gallery']);
       },
-      error: error => console.error('DEU RUIM', error)
+      error: err => {
+        this.loading = false;
+
+        console.error(err);
+
+        Swal.fire({
+          text: err.error?.message ?? 'Um erro ocorreu no login!',
+          icon: 'error'
+        });
+      }
     });
   }
 }
