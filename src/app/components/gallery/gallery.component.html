@@ -48,7 +48,7 @@
 </header>
 
 <div class="filter">
-  <span id="filter-all" onclick="loadByFilter(this.id)">
+  <span id="filter-all" (click)="changeFilter($event.target)">
     TODOS
   </span>
 
@@ -63,4 +63,24 @@
   </span>
 </div>
 
-<div class="posts" id="posts"></div>
+<div class="posts" id="posts" *ngFor="let image of this.gallery">
+  <div class="card" id={{image.id}}>
+    <div class="card-body">
+      <div class="background"></div>
+
+      <!--<div class="number-of-comments">
+        <i class="fa fa-download"></i>
+        <span>{{image.downloads}}</span>
+      </div>-->
+
+      <img src="data:image/png;base64,{{image.image}}">
+    </div>
+
+    <div class="card-footer">
+      <i class="fa fa-thumbs-up {{image.like && 'thumbs-up-filled'}}"></i>
+      <i class="fa fa-heart {{image.love && 'heart-filled'}}"></i>
+      <i class="fa fa-download"></i>
+      <i class="fa fa-trash"></i>
+    </div>
+  </div>
+</div>

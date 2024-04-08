@@ -210,6 +210,14 @@ header {
   transform: scale(1.1, 1.1);
 }
 
+.thumbs-up-filled {
+  color: #5564FF;
+}
+
+.heart-filled {
+  color: #FC6565;
+}
+
 .no-images-warning {
   margin-top: 20px;
 
