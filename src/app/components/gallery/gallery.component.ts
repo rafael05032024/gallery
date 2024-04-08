@@ -33,4 +33,18 @@ export class GalleryComponent implements OnInit {
   changeFilter(event: any) {
     console.log(event);
   }
+
+  favorite(action: string, imageId: number) {
+    this.galleryService.favorite(imageId, action).subscribe(() => {
+      const index = this.gallery.findIndex(img => img.id === imageId);
+
+      if (action === 'like') {
+        this.gallery[index].like = !this.gallery[index].like;
+
+        return;
+      }
+
+      this.gallery[index].love = !this.gallery[index].love;
+    });
+  }
 }

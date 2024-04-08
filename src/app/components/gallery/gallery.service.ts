@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { AuthService } from '../../auth.service';
@@ -33,5 +33,14 @@ export class GalleryService {
         authorization: `Bearer ${token}`
       }
     });
+  }
+
+  favorite(imageId: number, action: string): Observable<{}> {
+    const url = `${this.API}/gallery/image/${imageId}/favorite/${action}`;
+    const token = this.authService.getToken();
+
+    const headers = new HttpHeaders().set('authorization', `Bearer ${token}`);
+
+    return this.http.patch(url, {}, { headers });
   }
 }
