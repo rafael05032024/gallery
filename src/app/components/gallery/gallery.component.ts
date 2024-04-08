@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 
 import { GalleryService } from './gallery.service';
+import { AuthService } from '../../auth.service';
+import { Router } from '@angular/router';
 
 type Gallery = {
   id: number;
@@ -23,6 +25,8 @@ export class GalleryComponent implements OnInit {
 
   constructor(
     private galleryService: GalleryService,
+    private router: Router,
+    private authSerive: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -81,5 +85,11 @@ export class GalleryComponent implements OnInit {
 
   submitImage() {
     document.getElementById('submit_inpt')?.click();
+  }
+
+  logout() {
+    this.authSerive.logout();
+
+    this.router.navigate(['/login']);
   }
 }

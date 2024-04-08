@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { AuthService } from '../../auth.service';
+import { Router } from '@angular/router';
 
 type Gallery = {
   id: number;

@@ -42,9 +42,9 @@
 
   color: #fff;
 
-  background-color: #9ccad7;
+  background-color: #8888AF;
   border: none;
-  border-bottom: 4px solid #90bac5;
+  border-bottom: 4px solid #79799a;
   border-radius: 10px;
 
   display: flex;
@@ -112,7 +112,7 @@
 .form-link span {
   cursor: pointer;
 
-  color: #90bac5;
+  color: #79799a;
 }
 
 @media (width <= 800px) {

@@ -3,12 +3,12 @@ header {
   height: 50px;
 
   display: flex;
-  justify-content: space-between;
+  justify-content: right;
   align-items: center;
 
-  background-color: #9ccad7;
+  background-color: #8888AF;
 
-  border-bottom: 5px solid #90bac5;
+  border-bottom: 5px solid #79799a;
 }
 
 .logo {
@@ -24,33 +24,17 @@ header {
   padding: 5px;
 }
 
-.logo img {
-  width: 26px;
-  height: 26px;
-}
-
 .actions {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
+
+  margin-right: 12px;
 }
 
-.actions svg {
-  color: white;
+.actions img {
+  width: 32px;
   cursor: pointer;
-}
-
-.add-new-post-action {
-  display: flex;
-  align-items: center;
-  margin-right: 5px;
-}
-
-.add-new-post-action i {
-  font-size: 32px;
-  cursor: pointer;
-
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .filter {
