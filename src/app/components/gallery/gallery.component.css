@@ -71,24 +71,32 @@ header {
   cursor: pointer;
 
   display: flex;
+  align-items: center;
 
   transition: color 0.3s ease-in-out;
 }
 
 .filter span i {
   margin-left: 4px;
+
+  display: flex;
+
+  align-items: center;
 }
 
-.filter #filter-all {
-  border-bottom: 2px solid #8888AF;
+.filter-by-like-selected {
+  color: #5564FF;
+  border-bottom: 3px solid #5564FF;
 }
 
-.filter #filter-liked {
-  border-bottom: 2px solid #5564FF;
+.filter-by-love-selected {
+  color: #FC6565;
+  border-bottom: 3px solid #FC6565;
 }
 
-.filter #filter-hearted {
-  border-bottom: 4px solid #FC6565;
+.filter-by-all-selected {
+  color: #8888AF;
+  border-bottom: 3px solid #8888AF;
 }
 
 .posts {
@@ -101,7 +109,7 @@ header {
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
-  gap: 10px;
+  gap: 15px;
 }
 
 .card {

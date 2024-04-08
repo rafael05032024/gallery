@@ -18,33 +18,48 @@ type Gallery = {
 })
 export class GalleryComponent implements OnInit {
   gallery = [] as Gallery;
-  curentFilter = 'get-all';
+  curentFilterApplied = '';
 
-  constructor(private galleryService: GalleryService) { }
+  constructor(
+    private galleryService: GalleryService,
+  ) { }
 
   ngOnInit(): void {
-    this.galleryService.load().subscribe({
-      next: response => {
-        this.gallery = response;
-      }
+    this.load();
+  }
+
+  load(filter: string = '') {
+    this.curentFilterApplied = filter;
+
+    this.galleryService.load(filter).subscribe((gallery) => {
+      this.gallery = gallery;
     });
   }
 
-  changeFilter(event: any) {
-    console.log(event);
-  }
-
-  favorite(action: string, imageId: number) {
+  favorite(action: string, imageId: number): void {
     this.galleryService.favorite(imageId, action).subscribe(() => {
       const index = this.gallery.findIndex(img => img.id === imageId);
+      const isFavorited = !this.gallery[index][action];
 
-      if (action === 'like') {
-        this.gallery[index].like = !this.gallery[index].like;
+      this.gallery[index][action] = isFavorited;
 
-        return;
+      if (!isFavorited && this.curentFilterApplied) {
+        this.gallery.splice(index, 1);
       }
-
-      this.gallery[index].love = !this.gallery[index].love;
     });
+  }
+
+  submitImage() {
+    document.getElementById('submit_inpt')?.click();
+  }
+
+  onFileSelected(event: any) {
+    const file = event.target.files[0] as File;
+
+    if (file) {
+      this.galleryService.addImage(file).subscribe(() => {
+        this.load(this.curentFilterApplied);
+      });
+    }
   }
 }
