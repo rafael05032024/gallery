@@ -53,4 +53,13 @@ export class GalleryService {
 
     return this.http.post(url, formData, { headers });
   }
+
+  deleteImage(imageId: number): Observable<{}> {
+    const url =  `${this.API}/gallery/image/${imageId}`;
+    const token = this.authService.getToken();
+    const headers = new HttpHeaders()
+      .set('authorization', `Bearer ${token}`);
+
+    return this.http.delete(url, { headers });
+  }
 }

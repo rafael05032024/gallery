@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
 
 import { GalleryService } from './gallery.service';
 
@@ -49,8 +50,23 @@ export class GalleryComponent implements OnInit {
     });
   }
 
-  submitImage() {
-    document.getElementById('submit_inpt')?.click();
+  deleteImage(imageId: number) {
+    Swal.fire({
+      icon: 'warning',
+      text: 'Tem certeza que deseja deletar ?',
+      showConfirmButton: true,
+      showCancelButton: true,
+      cancelButtonText: 'Cancelar',
+      confirmButtonText: 'Confirmar'
+    }).then((response) => {
+      if (!response.isConfirmed) {
+        return;
+      }
+
+      this.galleryService.deleteImage(imageId).subscribe(() => {
+        this.load(this.curentFilterApplied);
+      })
+    });
   }
 
   onFileSelected(event: any) {
@@ -61,5 +77,9 @@ export class GalleryComponent implements OnInit {
         this.load(this.curentFilterApplied);
       });
     }
+  }
+
+  submitImage() {
+    document.getElementById('submit_inpt')?.click();
   }
 }

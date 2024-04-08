@@ -60,7 +60,7 @@
       <i class="fa fa-thumbs-up {{image.like && 'thumbs-up-filled'}}" (click)="favorite('like', image.id)"></i>
       <i class="fa fa-heart {{image.love && 'heart-filled'}}" (click)="favorite('love', image.id)"></i>
       <i class="fa fa-download"></i>
-      <i class="fa fa-trash"></i>
+      <i class="fa fa-trash" (click)="deleteImage(image.id)"></i>
     </div>
   </div>
 </div>
