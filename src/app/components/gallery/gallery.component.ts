@@ -92,4 +92,16 @@ export class GalleryComponent implements OnInit {
 
     this.router.navigate(['/login']);
   }
+
+  download(source: string) {
+    const anchor = document.createElement('a');
+
+    anchor.setAttribute('href', `data:image/png;base64,${source}`);
+    anchor.setAttribute('download', String(Date.now()) + '.png');
+
+    document.body.appendChild(anchor);
+
+    anchor.click();
+    anchor.remove();
+  }
 }
