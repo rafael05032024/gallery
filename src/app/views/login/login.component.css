@@ -73,34 +73,6 @@
   justify-content: center;
 }
 
-
-.form-container form section .input-container {
-  display: flex;
-
-  border: 1px solid #7a7a7a;
-  border-radius: 5px;
-
-  height: 45px;
-
-  padding: 10px;
-}
-
-.form-container form section label {
-  font-size: 14px;
-  font-weight: 300;
-
-  margin-bottom: 5px;
-}
-
-.form-container form section input {
-  background: transparent;
-  flex: 1;
-  border: none;
-
-  font-size: 0.8rem;
-  font-family: 'Poppins', sans-serif;
-}
-
 .form-link {
   display: flex;
   justify-content: center;

@@ -10,27 +10,23 @@
       </section>
 
       <section>
-        <label for="email">Email</label>
-
-        <div class="input-container">
-          <input
-            type="text"
-            formControlName="email"
-            id="email"
-          >
-        </div>
+        <app-input
+          type="email"
+          id="email"
+          label="Email"
+          formControlName="email"
+        >
+        </app-input>
       </section>
 
       <section>
-        <label for="password">Senha</label>
-
-        <div class="input-container">
-          <input
-            type="password"
-            id="password"
-            formControlName="password"
-          >
-        </div>
+        <app-input
+          type="password"
+          id="password"
+          label="Senha"
+          formControlName="password"
+        >
+        </app-input>
       </section>
 
       <section class="form-link">
