@@ -3,7 +3,7 @@
   </div>
 
   <div class="form-container">
-    <form>
+    <form [formGroup]="form">
       <section class="form-title">
         <img src="/assets/gallery-icon.png">
         <h1>My_gallery</h1>
@@ -15,9 +15,8 @@
         <div class="input-container">
           <input
             type="text"
-            name="email"
+            formControlName="email"
             id="email"
-            [(ngModel)]="email"
           >
         </div>
       </section>
@@ -29,8 +28,7 @@
           <input
             type="password"
             id="password"
-            name="password"
-            [(ngModel)]="password"
+            formControlName="password"
           >
         </div>
       </section>
