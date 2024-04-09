@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 
 import { SignupService } from './signup.service';
+import getErrorMessagesFromFormGroup from 'src/app/utils/getErrorMessagesFromFormGroup';
 
 @Component({
   selector: 'app-signup',
@@ -10,27 +12,38 @@ import { SignupService } from './signup.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  name = '';
-  email = '';
-  password = '';
   loading = false;
-  passwordConfirmation = '';
+  form!: FormGroup;
 
   constructor(
     private signupService: SignupService,
-    private router: Router
+    private router: Router,
+    private fromBuilder: FormBuilder
   ) { }
 
   ngOnInit(): void {
+    this.form = this.fromBuilder.group({
+      name: ['', Validators.required],
+      email: ['', Validators.compose([Validators.required, Validators.email])],
+      password: ['', Validators.required],
+      passwordConfirmation: ['', Validators.required]
+    });
   }
 
   signUp(): void {
-    this.signupService.signUp({
-      name: this.name,
-      email: this.email,
-      password: this.password,
-      passwordConfirmation: this.passwordConfirmation
-    }).subscribe({
+    if (!this.form.valid) {
+      const fields = ['email', 'password', 'name', 'passwordConfirmation'];
+      const error = getErrorMessagesFromFormGroup(fields, this.form);
+
+      Swal.fire({
+        icon: 'error',
+        text: error ?? 'Um erro ocorreu no login'
+      });
+
+      return;
+    }
+
+    this.signupService.signUp(this.form.value).subscribe({
       next: () => {
         Swal.fire({
           icon: 'success',

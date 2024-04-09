@@ -13,10 +13,7 @@ import getErrorMessagesFromFormGroup from '../../utils/getErrorMessagesFromFormG
 })
 
 export class LoginComponent implements OnInit {
-  email = '';
-  password = '';
   loading = false;
-
   form!: FormGroup;
 
   constructor(
@@ -39,13 +36,13 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    const fields = ['email', 'password'];
-    const error = getErrorMessagesFromFormGroup(fields, this.form);
+    if (!this.form.valid) {
+      const fields = ['email', 'password'];
+      const error = getErrorMessagesFromFormGroup(fields, this.form);
 
-    if (error) {
       Swal.fire({
         icon: 'error',
-        text: error
+        text: error ?? 'Um erro ocorreu no login'
       });
 
       return;

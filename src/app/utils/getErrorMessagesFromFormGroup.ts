@@ -3,7 +3,9 @@ import { FormGroup } from '@angular/forms';
 export default function getErrorMessagesFromFormGroup(fields: string[], form: FormGroup): string | null {
   const fieldMapper = {
     email: 'Email',
-    password: 'Senha'
+    password: 'Senha',
+    name: 'Nome',
+    passwordConfirmation: 'Confirmar senha'
   };
   let errorTxt;
 
