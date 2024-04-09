@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 
 import { GalleryService } from './gallery.service';
-import { AuthService } from '../../auth.service';
+import { AuthService } from '../../auth/auth.service';
 import { Router } from '@angular/router';
 
 type Gallery = {
