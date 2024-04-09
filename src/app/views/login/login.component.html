@@ -33,11 +33,12 @@
         <span routerLink="/signup">Não tem conta ? Cadastre-se</span>
       </section>
 
-      <button (click)="login()">
-        <div class="loader" *ngIf="loading"></div>
-
-        <span *ngIf="!loading">Entrar</span>
-      </button>
+      <app-button
+        (click)="login()"
+        [loading]="loading"
+        buttonText="Entrar"
+      >
+      </app-button>
     </form>
   </div>
 </div>

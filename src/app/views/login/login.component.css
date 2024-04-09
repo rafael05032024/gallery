@@ -37,22 +37,6 @@
   gap: 15px;
 }
 
-.form-container form button {
-  height: 50px;
-
-  color: #fff;
-
-  background-color: #8888AF;
-  border: none;
-  border-bottom: 4px solid #79799a;
-  border-radius: 10px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-
 .form-container form .form-title img {
   width: 38px;
 }
